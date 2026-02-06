@@ -41,4 +41,3 @@ jobs:
         with:
           name: normalized-srt
           path: output.srt
-          overwrite: true
