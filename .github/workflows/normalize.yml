@@ -13,6 +13,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Install FFmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
       - name: Download SRT
         run: |
           curl -L "${{ github.event.inputs.srt_url }}" -o input.srt
@@ -36,4 +41,3 @@ jobs:
         with:
           name: normalized-srt
           path: output.srt
-
