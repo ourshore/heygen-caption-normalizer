@@ -22,19 +22,18 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y ffmpeg
 
-      - name: Download SRT
+      - name: Download subtitle file
         run: |
           curl -L "${{ github.event.inputs.srt_url }}" -o input.ass
 
       - name: Show input file (debug)
         run: |
-          ls -lh input.srt
-          head -n 20 input.srt
+          ls -lh input.ass
+          head -n 20 input.ass
 
-      - name: Normalize with FFmpeg
+      - name: Convert ASS to SRT
         run: |
           ffmpeg -y -i input.ass output.srt
-
 
       - name: Show output file (debug)
         run: |
