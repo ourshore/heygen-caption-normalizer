@@ -37,8 +37,8 @@ jobs:
           head -n 20 output.srt
 
       - name: Upload normalized SRT
-  uses: actions/upload-artifact@v4
-  with:
-    name: normalized-srt
-    path: output.srt
-    overwrite: true
+        uses: actions/upload-artifact@v4
+        with:
+          name: normalized-srt
+          path: output.srt
+          overwrite: true
