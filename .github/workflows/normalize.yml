@@ -1,5 +1,9 @@
 name: Normalize SRT
 
+concurrency:
+  group: normalize-srt
+  cancel-in-progress: true
+
 on:
   workflow_dispatch:
     inputs:
