@@ -24,7 +24,7 @@ jobs:
 
       - name: Download SRT
         run: |
-          curl -L "${{ github.event.inputs.srt_url }}" -o input.srt
+          curl -L "${{ github.event.inputs.srt_url }}" -o input.ass
 
       - name: Show input file (debug)
         run: |
