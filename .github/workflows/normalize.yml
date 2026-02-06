@@ -1,1 +1,39 @@
+name: Normalize SRT
+
+on:
+  workflow_dispatch:
+    inputs:
+      srt_url:
+        description: "Public URL to the SRT file"
+        required: true
+        type: string
+
+jobs:
+  normalize:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download SRT
+        run: |
+          curl -L "${{ github.event.inputs.srt_url }}" -o input.srt
+
+      - name: Show input file (debug)
+        run: |
+          ls -lh input.srt
+          head -n 20 input.srt
+
+      - name: Normalize with FFmpeg
+        run: |
+          ffmpeg -y -i input.srt output.srt
+
+      - name: Show output file (debug)
+        run: |
+          ls -lh output.srt
+          head -n 20 output.srt
+
+      - name: Upload normalized SRT
+        uses: actions/upload-artifact@v4
+        with:
+          name: normalized-srt
+          path: output.srt
 
