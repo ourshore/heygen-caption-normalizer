@@ -33,7 +33,8 @@ jobs:
 
       - name: Normalize with FFmpeg
         run: |
-          ffmpeg -y -i input.srt output.srt
+          ffmpeg -y -i input.ass output.srt
+
 
       - name: Show output file (debug)
         run: |
